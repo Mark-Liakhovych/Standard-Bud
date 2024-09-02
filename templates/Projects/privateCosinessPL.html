@@ -1,0 +1,301 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ourProjects.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/inProjects.css' %}">  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/inProjectsPL.css' %}">
+  <script src="{% static 'js/inProjects.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
+  <title>PRIVATE COSINESS</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" id="header">
+      <div class="header__container">
+        <a href="{% url 'index_pl' %}" class="header__logo">
+          <img src="{% static 'img/header/logo.svg' %}" alt="STANDARD BUD">
+        </a>
+        <button class="header__burger" id="burger-button">
+          <span class="burger__up"></span>
+          <span class="burger__down"></span>
+        </button>
+        <nav class="header__menu menu" id="header-menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="{% url 'index_pl' %}" class="menu__link">dom</a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'about_us_pl' %}" class="menu__link">o nas</a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'our_projects_pl' %}" class="menu__link"><span class="menu__linkON">projekty</span></a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'job_pl' %}" class="menu__link">praca</a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'contact_pl' %}"  class="menu__link">skontaktuj się z nami</a>
+            </li>
+          </ul>
+    
+          <div class="header__language language">
+            <ul class="language__list">
+              <li class="language__item">
+                <a href="{% url 'index_pl' %}" class="language__link"><span class="language__linkON">PL</span></a>
+              </li>
+              <li class="language__item">
+                <a href="{% url 'index' %}" class="language__link">ENG</a>
+              </li>
+              <li class="language__item">
+                <a href="{% url 'index_de' %}"class="language__link">DE</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
+    
+    
+
+    
+
+    <main class="page">
+
+
+
+      {% for el in private_cosiness_model %}
+
+
+      <section class="page-project project-block">
+        <div class="project-block__container">
+          <div class="project-block__body body-project">
+            <div class="body-project__title">Wszystkie projekty <span class="title__line"> / </span>
+              <span class="title__name">{{ el.title }}</span>
+            </div>
+            <div class="body-project__content content-project ">
+              <div class="content-project__head">
+                <div class="content-project__title">
+                  {{ el.title }}
+                </div>
+                <div class="content-project__number">/08</div>
+              </div>
+              <div class="content-project__image">
+                <img src="{{ el.image.url }}" alt="Green Oasis">              
+              </div>
+              <div class="content-project__info info">
+                <div class="info__body">
+                  <div class="info__line">
+                    <div class="info__subtitle">Opis</div>
+                    <div class="info__text">{{ el.description }}</div>
+
+                  </div>
+      
+                  <div class="info__line">
+                    <div class="info__subtitle">Status</div>
+                    <div class="info__text">{{ el.status }}</div>
+                  </div>
+      
+                  <div class="info__line">
+                    <div class="info__subtitle">Lokalizacja</div>
+                    <div class="info__text">{{ el.location }}</div>
+                  </div>
+      
+                  <div class="info__line">
+                    <div class="info__subtitle">Piętra i Apartamenty</div>
+                    <div class="info__text">{{ el.floorsAndSuites }}</div>
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+
+      {% endfor %}
+
+
+
+      <section class="page__projects projects-block" id="projects">
+        <div class="projects-block__container">
+          <div class="projects-block__body body-projects-block">
+            <div class="body-projects-block__content content-projects-block">
+              <div class="content-projects-block__head">
+                <h2 class="content-projects-block__title"><span>/</span>our projects</h2>
+                <div class="content-projects-block__button">
+                  <a href="{% url 'our_projects' %}" class="button">MORE PROJECTS</a>
+                </div>
+              </div>
+      
+              <div id="scrollContainer" class="content-projects-block__cards">
+                <!-- Здесь располагаются карточки проектов -->
+                <div class="content-projects-block__card projects-card">
+
+                  
+                  {% for el in green_oasis_model %}
+
+                  <a href="{% url 'green_oasis_pl' %}">
+                  <div class="projects-card__head">
+                      <h3 class="projects-card__title">{{ el.title }}</h3>
+                      <div class="projects-card__number">/01</div>
+                    </div>
+                    <div class="projects-card__image">
+                      <img src="{{ el.image.url }}" alt="01">
+                    </div>
+                    <div class="projects-card__text">
+                      {{ el.description }}
+                    </div>
+                  </a>
+                  {% endfor %}
+
+                </div>
+                <!-- Добавьте остальные карточки -->
+                <div class="content-projects-block__card projects-card">
+
+                  {% for el in future_on_top_model %}
+
+                  <a href="{% url 'future_on_top_pl' %}">
+                  <div class="projects-card__head">
+                      <h3 class="projects-card__title">{{ el.title }}</h3>
+                      <div class="projects-card__number">/02</div>
+                    </div>
+                    <div class="projects-card__image">
+                      <img src="{{ el.image.url }}" alt="02">
+                    </div>
+                    <div class="projects-card__text">
+                      {{ el.description }}
+                    </div>
+                  </a>
+
+                  {% endfor %}
+
+                </div>
+      
+                <div class="content-projects-block__card projects-card">
+                  {% for el in modern_twins_model %}
+
+                  <a href="{% url 'modern_twins_pl' %}">
+                    <div class="projects-card__head">
+                    <h3 class="projects-card__title">{{ el.title }}</h3>
+                    <div class="projects-card__number">/03</div>
+                  </div>
+                  <div class="projects-card__image">
+                    <img src="{{ el.image.url }}" alt="03">
+                  </div>
+                  <div class="projects-card__text">
+                    {{ el.description }}
+                  </div>
+                  </a>
+
+                  {% endfor %}
+
+                </div>
+
+
+                {% for el in modernity_in_glass_walls_model %}
+
+      
+                <div class="content-projects-block__card projects-card">
+                  <a href="{% url 'modernity_in_glass_walls_pl' %}" >                  
+                    <div class="projects-card__head">
+                    <h3 class="projects-card__title projects-card__title-4th">{{ el.title }}</h3>
+                    <div class="projects-card__number">/04</div>
+                  </div>
+                  <div class="projects-card__image">
+                    <img src="{{ el.image.url }}" alt="04">
+                  </div>
+                  <div class="projects-card__text">
+                    {{ el.description }}
+                  </div>
+                  </a>
+
+                  {% endfor %}
+
+                </div>
+              </div>
+
+
+              <div class="content-projects-block__down">
+                <a href="{% url 'our_projects' %}" class="button">MORE PROJECTS</a>              
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      
+
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="main-footer__container">
+        <div class="footer__main main-footer">
+          <div class="main-footer__text">STANDARD BUD</div>
+        </div>
+    
+        <div class="footer-contact__title">
+          <span>/</span>skontaktuj się z nami poprzez
+        </div>
+    
+        <div class="main-footer__body footer-body">
+          <div class="footer-body__content">
+            <div class="footer-body__contacts footer-contacts">
+              <a class="footer-contacts__mail" href="mailto:standardbud.agency@gmail.com">Standardbud.agency@gmail.com</a>
+              <div class="footer-contacts__telefones">
+                <a class="footer-contacts__telefon" href="tel:+48732619991">+48732619991</a>
+                <a class="footer-contacts__telefon" href="tel:+48733740138">+48733740138</a>
+              </div>
+            </div>
+    
+            <div class="footer-mobile__buttons buttons-mobile footer__mobile">
+              <div class="buttons-mobile__body">
+                <a class="button-mobile button-mobile__email" href="mailto:standardbud.agency@gmail.com">EMAIL</a>
+                <a href="{% url 'contact_pl' %}" class="button-mobile button-mobile__whatsapp">WhatsApp</a>
+              </div>
+            </div>
+    
+            <div class="footer-body__copyright">
+              <div class="copyright">© 2024</div>
+              <a class="designed__by" href="mailto:hardmixagency@gmail.com">Designed by hardmixagency@gmail.com</a>
+            </div>
+          </div>
+          <div class="footer-body__buttons buttons-footer">
+            <div class="buttons-footer__body">
+              <a class="button-footer button-footer__email" href="mailto:standardbud.agency@gmail.com">EMAIL</a>
+              <a href="{% url 'contact_pl' %}" class="button-footer button-footer__whatsapp">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="footer__bottom">
+        STANDARD BUD
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

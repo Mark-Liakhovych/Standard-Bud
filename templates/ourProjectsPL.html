@@ -1,0 +1,356 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ourProjects.css' %}">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ourProjectsPL.css' %}">
+
+
+  <script src="{% static 'js/ourProjects.js' %}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>PROJECTS</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
+</head>
+<body>
+  <div class="wrapper">
+
+
+
+
+
+
+
+    <header class="header" id="header">
+      <div class="header__container">
+        <a href="{% url 'index_pl' %}" class="header__logo">
+          <img src="{% static 'img/header/logo.svg' %}" alt="STANDARD BUD">
+        </a>
+        <button class="header__burger" id="burger-button">
+          <span class="burger__up"></span>
+          <span class="burger__down"></span>
+        </button>
+        <nav class="header__menu menu" id="header-menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="{% url 'index_pl' %}" class="menu__link">dom</a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'about_us_pl' %}" class="menu__link">o nas</a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'our_projects_pl' %}" class="menu__link"><span class="menu__linkON">projekty</span></a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'job_pl' %}" class="menu__link">praca</a>
+            </li>
+            <li class="menu__item">
+              <a href="{% url 'contact_pl' %}"  class="menu__link">skontaktuj się z nami</a>
+            </li>
+          </ul>
+    
+          <div class="header__language language">
+            <ul class="language__list">
+              <li class="language__item">
+                <a href="{% url 'index_pl' %}" class="language__link"><span class="language__linkON">PL</span></a>
+              </li>
+              <li class="language__item">
+                <a href="{% url 'index' %}" class="language__link">ENG</a>
+              </li>
+              <li class="language__item">
+                <a href="{% url 'index_de' %}"class="language__link">DE</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
+    
+
+    
+
+    <main class="page">
+
+
+
+
+
+
+
+      <section class="page__projects1 projects-block1">
+        <div class="projects-block1__container">
+          <div class="projects-block1__body body-projects-block1">
+            <div class="body-projects-block1__content content-projects-block1">
+              <div class="content-projects-block1__head">
+                <h2 class="content-projects-block1__title">nasze<br>projekty</h2>
+              </div>
+      
+              <div class="content-projects-block1__cards">
+              
+                {% for el in green_oasis_model %}
+                <a href="{% url 'green_oasis_pl' %}" class="content-projects-block1__card projects-card1">
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}
+                    </h3>
+                    <div class="projects-card1__number">/01</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="01">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+                  </div>
+                </a>
+
+                {% endfor %}
+
+
+                {% for el in future_on_top_model %}
+                <a href="{% url 'future_on_top_pl' %}" class="content-projects-block1__card projects-card1 content-projects-block1__cards__sec1">
+
+
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}</h3>
+                    <div class="projects-card1__number">/02</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="02">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+
+                  </div>
+                </a>
+
+                {% endfor %}
+
+
+
+
+
+                {% for el in modern_twins_model %}
+
+                <a href="{% url 'modern_twins_pl' %}" class="content-projects-block1__card projects-card1">
+
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}</h3>
+                    <div class="projects-card1__number">/03</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="03">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+
+                  </div>
+                </a>
+
+
+
+                {% endfor %}
+
+
+
+                {% for el in modernity_in_glass_walls_model %}
+
+
+
+
+                <!-- Здесь располагаются карточки проектов -->
+                <a href="{% url 'modernity_in_glass_walls_pl' %}" class="content-projects-block1__card projects-card1 content-projects-block1__cards__sec1">
+
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title projects-card1__title-4th">{{ el.title }}</h3>
+                    <div class="projects-card1__number">/04</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="04">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+
+                  </div>
+                </a>
+                <!-- Добавьте остальные карточки -->
+
+                {% endfor %}
+
+
+      
+                {% for el in bright_simplicity_model %}
+
+      
+                <a href="{% url 'bright_simplicity_pl' %}" class="content-projects-block1__card projects-card1">
+
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}</h3>
+                    <div class="projects-card1__number">/05</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="05">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+
+                  </div>
+                </a>
+
+
+
+
+                {% endfor %}
+                {% for el in strict_elegance_model %}
+
+
+      
+                <a href="{% url 'strict_elegance_pl' %}" class="content-projects-block1__card projects-card1 content-projects-block1__cards__sec1">
+
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}</h3>
+                    <div class="projects-card1__number">/06</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="06">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+                  </div>
+                </a>
+
+
+
+
+                {% endfor %}
+
+
+
+                {% for el in space_for_creativity_model %}
+
+                <a href="{% url 'space_for_creativity_pl' %}" class="content-projects-block1__card projects-card1">
+
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}</h3>
+
+                    <div class="projects-card1__number">/07</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="07">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+
+                  </div>
+                </a>
+      
+
+
+                {% endfor %}
+
+
+
+
+
+
+                {% for el in private_cosiness_model %}
+
+                <a href="{% url 'private_cosiness_pl' %}" class="content-projects-block1__card projects-card1 content-projects-block1__cards__sec1">
+                
+                  <div class="projects-card1__head">
+                    <h3 class="projects-card1__title">{{ el.title }}</h3>
+                
+                    <div class="projects-card1__number">/08</div>
+                  </div>
+                  <div class="projects-card1__image">
+                    <img src="{{ el.image.url }}" alt="08">                  
+                  </div>
+                  <div class="projects-card1__text">
+                    {{ el.description }}
+                  </div>
+                </a>
+                
+                
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+
+
+
+
+
+
+
+      
+      
+
+
+    </main>
+    <footer class="footer" id="footer">
+      <div class="main-footer__container">
+        <div class="footer__main main-footer">
+          <div class="main-footer__text">STANDARD BUD</div>
+        </div>
+    
+        <div class="footer-contact__title">
+          <span>/</span>skontaktuj się z nami poprzez
+        </div>
+    
+        <div class="main-footer__body footer-body">
+          <div class="footer-body__content">
+            <div class="footer-body__contacts footer-contacts">
+              <a class="footer-contacts__mail" href="mailto:standardbud.agency@gmail.com">Standardbud.agency@gmail.com</a>
+              <div class="footer-contacts__telefones">
+                <a class="footer-contacts__telefon" href="tel:+48732619991">+48732619991</a>
+                <a class="footer-contacts__telefon" href="tel:+48733740138">+48733740138</a>
+              </div>
+            </div>
+    
+            <div class="footer-mobile__buttons buttons-mobile footer__mobile">
+              <div class="buttons-mobile__body">
+                <a class="button-mobile button-mobile__email" href="mailto:standardbud.agency@gmail.com">EMAIL</a>
+                <a href="https://wa.me/qr/WQLDM6YR5HP3L1" class="button-mobile button-mobile__whatsapp">WhatsApp</a>
+              </div>
+            </div>
+    
+            <div class="footer-body__copyright">
+              <div class="copyright">© 2024</div>
+              <a class="designed__by" href="mailto:hardmixagency@gmail.com">Designed by hardmixagency@gmail.com</a>
+            </div>
+          </div>
+          <div class="footer-body__buttons buttons-footer">
+            <div class="buttons-footer__body">
+              <a class="button-footer button-footer__email" href="mailto:standardbud.agency@gmail.com">EMAIL</a>
+              <a href="https://wa.me/qr/WQLDM6YR5HP3L1" class="button-footer button-footer__whatsapp">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="footer__bottom">
+        STANDARD BUD
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

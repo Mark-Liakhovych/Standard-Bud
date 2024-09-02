@@ -1,0 +1,86 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const burgerButton = document.getElementById('burger-button');
+  const headerMenu = document.getElementById('header-menu');
+
+  if (burgerButton && headerMenu) {
+    burgerButton.addEventListener('click', function () {
+      this.classList.toggle('active');
+      headerMenu.classList.toggle('active');
+
+      if (headerMenu.classList.contains('active')) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
+    });
+  }
+
+  function updateTextContent() {
+    const element = document.querySelector('.text-card__text__big');
+    const span = element.querySelector('span');
+
+    if (window.matchMedia('(max-width: 990.98px)').matches) {
+      // Если ширина экрана меньше 991px, изменяем содержимое
+      element.innerHTML = 'WITH<br><span>STANDARD<br>BUD.</span>';
+    } else {
+      // Если ширина экрана больше 991px, восстанавливаем исходное содержимое
+      element.innerHTML = 'WITH<br><span>STANDARDBUD.</span>';
+    }
+  }
+
+  // Добавляем слушатель на изменение размера окна
+  window.addEventListener('resize', updateTextContent);
+
+  // Вызываем функцию для установки начального состояния
+  updateTextContent();
+
+  const scrollContainer = document.getElementById("scrollContainer");
+  if (scrollContainer) {
+    let isScrolling = false;
+
+    scrollContainer.addEventListener("wheel", function (e) {
+      e.preventDefault(); // Предотвращаем стандартное поведение скроллинга
+
+      if (isScrolling) {
+        return; // Если скролл уже в процессе, игнорируем
+      }
+
+      const scrollDistance = 630; // Расстояние прокрутки в пикселях
+
+      isScrolling = true;
+
+      let startScrollLeft = scrollContainer.scrollLeft;
+      let endScrollLeft = startScrollLeft + scrollDistance * Math.sign(e.deltaY); // Учитываем направление скролла
+      let startTime = null;
+
+      const scrollAnimation = (timestamp) => {
+        if (!startTime) {
+          startTime = timestamp;
+        }
+
+        const elapsedTime = timestamp - startTime;
+        const duration = 500; // Длительность анимации в миллисекундах
+
+        const progress = Math.min(elapsedTime / duration, 1);
+
+        const easeInOutQuad = (t) => {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        };
+
+        const newScrollLeft = startScrollLeft + (endScrollLeft - startScrollLeft) * easeInOutQuad(progress);
+
+        scrollContainer.scrollLeft = newScrollLeft;
+
+        if (progress < 1) {
+          requestAnimationFrame(scrollAnimation);
+        } else {
+          isScrolling = false; // Скролл завершен
+        }
+      };
+
+      requestAnimationFrame(scrollAnimation);
+    });
+  }
+});
+
+

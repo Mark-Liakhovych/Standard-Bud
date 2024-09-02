@@ -1,0 +1,36 @@
+from django.contrib import admin
+from .models import GREEN_OASIS_EN, GREEN_OASIS_DE, GREEN_OASIS_PL, BRIGHT_SIMPLICITY_EN, BRIGHT_SIMPLICITY_DE, BRIGHT_SIMPLICITY_PL, FUTURE_ON_TOP_EN, FUTURE_ON_TOP_DE, FUTURE_ON_TOP_PL, MODERNITY_IN_GLASS_WALLS_EN, MODERNITY_IN_GLASS_WALLS_DE, MODERNITY_IN_GLASS_WALLS_PL, MODERN_TWINS_EN, MODERN_TWINS_DE, MODERN_TWINS_PL, PRIVATE_COSINESS_EN, PRIVATE_COSINESS_DE, PRIVATE_COSINESS_PL, SPACE_FOR_CREATIVITY_EN, SPACE_FOR_CREATIVITY_DE, SPACE_FOR_CREATIVITY_PL, STRICT_ELEGANCE_EN, STRICT_ELEGANCE_DE, STRICT_ELEGANCE_PL
+
+
+# Register your models here.
+admin.site.register(GREEN_OASIS_EN)
+admin.site.register(GREEN_OASIS_DE)
+admin.site.register(GREEN_OASIS_PL)
+
+admin.site.register(BRIGHT_SIMPLICITY_EN)
+admin.site.register(BRIGHT_SIMPLICITY_DE)
+admin.site.register(BRIGHT_SIMPLICITY_PL)
+
+admin.site.register(FUTURE_ON_TOP_EN)
+admin.site.register(FUTURE_ON_TOP_DE)
+admin.site.register(FUTURE_ON_TOP_PL)
+
+admin.site.register(MODERNITY_IN_GLASS_WALLS_EN)
+admin.site.register(MODERNITY_IN_GLASS_WALLS_DE)
+admin.site.register(MODERNITY_IN_GLASS_WALLS_PL)
+
+admin.site.register(MODERN_TWINS_EN)
+admin.site.register(MODERN_TWINS_DE)
+admin.site.register(MODERN_TWINS_PL)
+
+admin.site.register(PRIVATE_COSINESS_EN)
+admin.site.register(PRIVATE_COSINESS_DE)
+admin.site.register(PRIVATE_COSINESS_PL)
+
+admin.site.register(SPACE_FOR_CREATIVITY_EN)
+admin.site.register(SPACE_FOR_CREATIVITY_DE)
+admin.site.register(SPACE_FOR_CREATIVITY_PL)
+
+admin.site.register(STRICT_ELEGANCE_EN)
+admin.site.register(STRICT_ELEGANCE_DE)
+admin.site.register(STRICT_ELEGANCE_PL)
